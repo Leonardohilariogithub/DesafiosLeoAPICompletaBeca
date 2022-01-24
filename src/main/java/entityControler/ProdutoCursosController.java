@@ -2,6 +2,7 @@ package entityControler;
 
 import br.com.nttdata.desafios.entity.ProdutoCursos;
 import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/produto")
 public class ProdutoCursosController {
