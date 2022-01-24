@@ -3,7 +3,7 @@ package br.com.nttdata.desafios.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ProdutoCursos<plublic> {
+public class ProdutoCursos {
     @Getter
     @Setter
 private String nome;
