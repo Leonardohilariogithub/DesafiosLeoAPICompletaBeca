@@ -1,4 +1,4 @@
-package br.com.nttdata.desafios.entity;
+package entityControler;
 
 import lombok.Getter;
 import lombok.Setter;

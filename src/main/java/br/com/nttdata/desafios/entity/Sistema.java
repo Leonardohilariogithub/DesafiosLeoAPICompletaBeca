@@ -1,6 +1,6 @@
 package br.com.nttdata.desafios.entity;
 
-import br.com.nttdata.desafios.entity.ProdutoCursos;
+import entityControler.ProdutoCursos;
 
 public class Sistema {
 
