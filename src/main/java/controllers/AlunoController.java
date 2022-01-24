@@ -1,4 +1,4 @@
-package entityControler;
+package controllers;
 
 
 public class AlunoController {

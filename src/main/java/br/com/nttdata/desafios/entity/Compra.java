@@ -7,4 +7,8 @@ public class Compra {
 @Getter
 @Setter
     private double valorTotal;
+
+    public Compra(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
 }
