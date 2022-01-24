@@ -1,4 +1,6 @@
-package br.com.nttdata.desafios.poo;
+package br.com.nttdata.desafios.entity;
+
+import br.com.nttdata.desafios.entity.ProdutoCursos;
 
 public class Sistema {
 

@@ -1,4 +1,4 @@
-package br.com.nttdata.desafios.poo;
+package br.com.nttdata.desafios.entity;
 
 public class ProdutoCursos<plublic> {
 private String nome;
