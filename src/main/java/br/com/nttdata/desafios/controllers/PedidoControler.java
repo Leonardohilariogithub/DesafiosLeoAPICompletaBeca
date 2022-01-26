@@ -40,3 +40,8 @@ public class PedidoControler {
         return "REQUISAO DELETE!!!";
     }
 }
+//localhost:8080/produto/
+//    Create - Criar - POST - cria um obejeto - criei
+//    Read - LER - Get - Ler - ok
+//    Update - Atualizar - Put/Patch - atualiza um objeto - aceitei
+//    Delete - Deletar - Delete - exclui - nada
