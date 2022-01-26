@@ -1,6 +1,7 @@
 package br.com.nttdata.desafios.controllers;
 
 import br.com.nttdata.desafios.entity.ProdutoCursos;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +19,9 @@ public class ProdutoCursosController {
         return bancoDeDados;
     }
 
-    @PostMapping(path = "/criou")
-    public String criar(){
-        return "criou!!!";
+    @PostMapping(value = "/", produces = "application/json")
+    public ResponseEntity criar(){
+        return new ResponseEntity("criou!!!", HttpStatus.OK);
     }
 
     @PutMapping
