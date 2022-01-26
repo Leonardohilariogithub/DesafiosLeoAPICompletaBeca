@@ -15,18 +15,19 @@ public class ProdutoCursosController {
     List<ProdutoCursos> bancoDeDados = new ArrayList<>();
 
     @GetMapping(path = "/qualquer")
-    public List<ProdutoCursos> obterProduto(){
-        return bancoDeDados;
+    public ResponseEntity<List<ProdutoCursos>> obterProduto(){
+        return ResponseEntity.ok(bancoDeDados);
     }
 
-    @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity criar(){
-        return new ResponseEntity("criou!!!", HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<String> criar(@RequestBody ProdutoCursos body){
+        bancoDeDados.add(body);
+        return new ResponseEntity<>("criou!!!", HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public String put(){
-        return "REQUISAO PUT!!!";
+    @PutMapping("/{id}")
+    public String put(@PathVariable int id){
+        return "REQUISAO PUT pelo ID !";
     }
 
     @PatchMapping
@@ -38,6 +39,12 @@ public class ProdutoCursosController {
     public String delete(){
         return "REQUISAO DELETE!!!";
     }
+//localhost:8080/produto/
+//    Create - Criar - POST - cria um obejeto - criei
+//    Read - LER - Get - Ler - ok
+//    Update - Atualizar - Put/Patch - atualiza um objeto - aceitei
+//    Delete - Deletar - Delete - exclui - nada
+
 }
 
 
