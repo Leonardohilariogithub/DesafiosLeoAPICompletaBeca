@@ -1,8 +1,5 @@
 # becaDesafiosLeo
-ProjetoCompletoEm8Desafios
-
-# becaDesafiosLeo
-ProjetoCompletoEm8Desafios
+Projeto Completo Em 8 Desafios
 
 </div>
 <div style="display: inline_block"><br>
