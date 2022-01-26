@@ -24,12 +24,4 @@ public class ProdutoCursos{
     public void setValor(double valor) {
         this.valor = valor;
     }
-
-    void comprar(){
-
-    }
-
-    void retirar(){
-
-    }
 }
