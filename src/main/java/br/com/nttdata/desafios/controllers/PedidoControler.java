@@ -26,18 +26,18 @@ public class PedidoControler {
     }
 
     @PutMapping("/{id}")
-    public String put(@PathVariable int id){
-        return "REQUISAO PUT pelo ID !";
+    public ResponseEntity<String> put(@PathVariable int id){
+        return new ResponseEntity<>("REQUISAO PUT pelo ID !",HttpStatus.OK);
     }
 
     @PatchMapping
-    public String patch(){
-        return "REQUIÇÃO PATCH!!!";
+    public ResponseEntity<String> patch(){
+        return new ResponseEntity<>("REQUIÇÃO PATCH!!!", HttpStatus.OK) ;
     }
 
     @DeleteMapping
-    public String delete(){
-        return "REQUISAO DELETE!!!";
+    public ResponseEntity<String> delete(){
+        return new ResponseEntity<>("REQUISAO DELETE!!!",HttpStatus.OK) ;
     }
 }
 //localhost:8080/produto/
