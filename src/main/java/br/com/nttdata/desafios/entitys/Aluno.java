@@ -1,4 +1,4 @@
-package br.com.nttdata.desafios.entity;
+package br.com.nttdata.desafios.entitys;
 
 public class Aluno {
 
