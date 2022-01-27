@@ -44,35 +44,6 @@ public class ProdutoCursosController {
         return ResponseEntity.noContent().build();
     }
 
-//    List<ProdutoCursos> bancoDeDados = new ArrayList<>();
-//
-//    @GetMapping(path = "/qualquer")
-//    public ResponseEntity<List<ProdutoCursos>> obterProduto(){
-//        return ResponseEntity.ok(bancoDeDados);
-//    }
-//
-//    @PostMapping
-//    public ResponseEntity<String> criar(@RequestBody ProdutoCursos body){
-//        bancoDeDados.add(body);
-//        return new ResponseEntity<>("criou!!!", HttpStatus.CREATED);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public ResponseEntity<String> put(@PathVariable int id){
-//        return new ResponseEntity<>("REQUISAO PUT pelo ID !", HttpStatus.OK);
-//    }
-//
-//    @PatchMapping
-//    public ResponseEntity<String> patch(){
-//        return new ResponseEntity<>("REQUIÇÃO PATCH!!!",HttpStatus.OK);
-//    }
-//
-//    @DeleteMapping
-//    public ResponseEntity<String> delete(){
-//        return new ResponseEntity<>("REQUISAO DELETE!!!", HttpStatus.OK);
-//    }
-
-
 //localhost:8080/produto/
 //    Create - Criar - POST - cria um obejeto - criei
 //    Read - LER - Get - Ler - ok

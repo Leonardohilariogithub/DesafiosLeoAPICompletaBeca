@@ -1,12 +1,8 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
