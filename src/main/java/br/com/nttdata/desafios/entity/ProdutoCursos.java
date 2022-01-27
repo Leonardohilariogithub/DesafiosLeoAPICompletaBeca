@@ -1,19 +1,13 @@
 package br.com.nttdata.desafios.entity;
 
-public class ProdutoCursos {
+public class ProdutoCursos{
+    private String nome;
+    private double valor;
 
-
-    private long id;
-private String nome;
-private double valor;
-
-    public ProdutoCursos(long id, String nome, double valor) {
-        this.id = id;
-
+    public ProdutoCursos(String nome, double valor) {
         this.nome = nome;
         this.valor = valor;
     }
-
 
     public String getNome() {
         return nome;
@@ -30,6 +24,4 @@ private double valor;
     public void setValor(double valor) {
         this.valor = valor;
     }
-
-
 }
