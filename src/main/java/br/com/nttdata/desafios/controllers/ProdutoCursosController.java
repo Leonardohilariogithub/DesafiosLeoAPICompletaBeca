@@ -1,45 +1,48 @@
 package br.com.nttdata.desafios.controllers;
 
-import br.com.nttdata.desafios.entity.ProdutoCursos;
-import org.springframework.http.HttpStatus;
+import br.com.nttdata.desafios.entitys.ProdutoCursos;
+import br.com.nttdata.desafios.services.ProdutoCursosService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produto")
+@RequestMapping(value = "/produto")
 public class ProdutoCursosController {
 
-    List<ProdutoCursos> bancoDeDados = new ArrayList<>();
-
-    @GetMapping(path = "/qualquer")
-    public ResponseEntity<List<ProdutoCursos>> obterProduto(){
-        return ResponseEntity.ok(bancoDeDados);
-    }
+    @Autowired
+    private ProdutoCursosService produtoCursosService;
 
     @PostMapping
-    public ResponseEntity<String> criar(@RequestBody ProdutoCursos body){
-        bancoDeDados.add(body);
-        return new ResponseEntity<>("criou!!!", HttpStatus.CREATED);
+    public ResponseEntity<ProdutoCursos>criar(@RequestBody ProdutoCursos produtoCursos){
+        ProdutoCursos cursos = produtoCursosService.criar(produtoCursos);
+        return ResponseEntity.created(null).body(cursos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> put(@PathVariable int id){
-        return new ResponseEntity<>("REQUISAO PUT pelo ID !", HttpStatus.OK);
+    @PatchMapping("{id}")
+    public ResponseEntity<ProdutoCursos>atualizar(@RequestBody ProdutoCursos produtoCursos, @PathVariable Long id){
+        ProdutoCursos cursosAtualizado = produtoCursosService.atualizar(produtoCursos,id);
+        return ResponseEntity.created(null).body(cursosAtualizado);
     }
 
-    @PatchMapping
-    public ResponseEntity<String> patch(){
-        return new ResponseEntity<>("REQUIÇÃO PATCH!!!",HttpStatus.OK);
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+        produtoCursosService.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping
-    public ResponseEntity<String> delete(){
-        return new ResponseEntity<>("REQUISAO DELETE!!!", HttpStatus.OK);
+    @GetMapping
+    public ResponseEntity<List<ProdutoCursos>> listarCursos(){
+        List<ProdutoCursos>listarCursos = produtoCursosService.listar();
+        return ResponseEntity.ok(listarCursos);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<ProdutoCursos> obterCurso(@PathVariable Long id){
+        return ResponseEntity.noContent().build();
+    }
 
 //localhost:8080/produto/
 //    Create - Criar - POST - cria um obejeto - criei
