@@ -25,10 +25,12 @@ ProjetoCompletoEm8Desafios
 
 ## O que você vai aprender
 -01 Desafio POO - Modelar o projeto e criar entidades
+
 -02 Desafio Controller - Entendimento dos protocolos http e confecção das controllers
 Crie as classes de controllers na sua API (CRUD);
 Implementar o OpenAPI na sua Spring Rest API;
 Implementar ResponseEntity nos retornos das suas chamadas!
+
 -03 <h3>Desafio Service - Indrodução e confecção servive</h3>
 Crie as classes de service na sua API;
 Implementar interfaces e declara os metódos que irá ser utilizadas;
