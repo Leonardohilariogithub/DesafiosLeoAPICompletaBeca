@@ -22,7 +22,11 @@ Projeto API Completa Em 8 Desafios
 
 ## O que você vai aprender
 - Desafio POO - Modelar o projeto e criar entidades
-- Desafio Controller - Entendimento dos protocolos http e confecção das controllers
+- <h3>Desafio Controller - Entendimento dos protocolos http e confecção das controllers</h3>
+Crie as classes de controllers na sua API (CRUD);
+Implementar o OpenAPI na sua Spring Rest API;
+Implementar ResponseEntity nos retornos das suas chamadas!
+
 - Desafio Service - Indrodução e confecção servive
 - Desafio Repository - Conexão com base de dados utilizando JPA
 - Desafio DTO - Aplicar conceitos de DTO no projeto
