@@ -24,29 +24,12 @@ ProjetoCompletoEm8Desafios
   - [Instância](#Instância)
 
 ## O que você vai aprender
-- Desafio POO - Modelar o projeto e criar entidades
-- Desafio Controller - Entendimento dos protocolos http e confecção das controllers
 - Desafio Service - Indrodução e confecção servive
-- Desafio Repository - Conexão com base de dados utilizando JPA
-- Desafio DTO - Aplicar conceitos de DTO no projeto
-- Desafio Tratamento de dados - Conceitos de validação, tratamento e manipulação de dados de forma otimizada 
-- Desafio de Exeções - Entendimento de como tratar possiveis erros na API
-- Desafio Dokcker - Integração da API com docker
 
 ## Pré-requisitos
 
 - Vontade de aprender
 
-## Enunciado do exercício
+Tecnologias Usadas: Java / Spring boot
 
-![myImage](https://github.com/Leonardohilariogithub/becaDesafiosLeo/blob/main/enuciado.PNG)
 
-## Diagramas
-
-### Modelo conceitual
-
-![myImage](https://github.com/Leonardohilariogithub/becaDesafiosLeo/blob/main/modelo.PNG)
-
-### Instância
-
-![myImage](https://github.com/Leonardohilariogithub/becaDesafiosLeo/blob/main/instancias.PNG)
