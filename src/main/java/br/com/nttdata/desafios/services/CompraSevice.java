@@ -1,11 +1,13 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.Compra;
+import br.com.nttdata.desafios.services.interfaces.CompraInterface;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class CompraSevice {
+public class CompraSevice implements CompraInterface {
+
     public Compra criar(Compra compra){
         compra.setId(1L);
         return compra;

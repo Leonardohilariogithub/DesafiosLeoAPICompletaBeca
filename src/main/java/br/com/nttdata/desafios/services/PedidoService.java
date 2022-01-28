@@ -1,12 +1,13 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.Pedido;
+import br.com.nttdata.desafios.services.interfaces.PedidoInterface;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PedidoService {
+public class PedidoService implements PedidoInterface {
 
     public Pedido criar(Pedido pedido){
         pedido.setId(2l);
