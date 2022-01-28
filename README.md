@@ -24,12 +24,14 @@ ProjetoCompletoEm8Desafios
   - [Instância](#Instância)
 
 ## O que você vai aprender
-- Desafio Service - Indrodução e confecção servive
+- Desafio03
+- Implementadas as interfaces com os métodos utilizados;
+- Criação de services funcionais;
+- Integração com a camada controller.
 
 ## Pré-requisitos
 
 - Vontade de aprender
 
 Tecnologias Usadas: Java / Spring boot
-
 
