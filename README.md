@@ -18,10 +18,6 @@ ProjetoCompletoEm8Desafios
 ## Sumário
 - [O que você vai aprender](#O-que-você-vai-aprender)
 - [Pré-requisitos](#Pré-requisitos)
-- [Enunciado do exercício](#Enunciado-do-exercício)
-- [Diagramas](#Diagramas)
-  - [Modelo conceitual](#Modelo-conceitual)
-  - [Instância](#Instância)
 
 ## O que você vai aprender
 - Desafio03
