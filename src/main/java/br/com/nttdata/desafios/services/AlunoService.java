@@ -1,11 +1,12 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.Aluno;
+import br.com.nttdata.desafios.services.interfaces.AlunoInterface;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class AlunoService {
+public class AlunoService implements AlunoInterface {
 
         public Aluno criar(Aluno aluno){
             aluno.setId(3l);

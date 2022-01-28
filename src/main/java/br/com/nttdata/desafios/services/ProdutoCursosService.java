@@ -1,12 +1,13 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
+import br.com.nttdata.desafios.services.interfaces.ProdutoCursosInterface;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ProdutoCursosService {
+public class ProdutoCursosService implements ProdutoCursosInterface {
 
         public ProdutoCursos criar( ProdutoCursos produto){
             produto.setId(1L);
