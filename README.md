@@ -26,7 +26,11 @@ ProjetoCompletoEm8Desafios
 ## O que você vai aprender
 - Desafio POO - Modelar o projeto e criar entidades
 - Desafio Controller - Entendimento dos protocolos http e confecção das controllers
-- <h4>Desafio Service - Indrodução e confecção servive</h4>
+- <h3>Desafio Service - Indrodução e confecção servive</h3>
+Crie as classes de service na sua API;
+Implementar interfaces e declara os metódos que irá ser utilizadas;
+Faça a integração com a camada de controller;
+
 - Desafio Repository - Conexão com base de dados utilizando JPA
 - Desafio DTO - Aplicar conceitos de DTO no projeto
 - Desafio Tratamento de dados - Conceitos de validação, tratamento e manipulação de dados de forma otimizada 
