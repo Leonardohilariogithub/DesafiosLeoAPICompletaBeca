@@ -1,14 +1,24 @@
 package br.com.nttdata.desafios.entitys;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "alunos")
 public class Aluno {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
     private String cpf;
 
-    public Aluno(long id,String nome, String cpf) {
+    @ManyToOne
+    private ProdutoCursos produtoCursos;
+
+    public Aluno(long id, String nome, String cpf, ProdutoCursos produtoCursos) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
+        this.produtoCursos = produtoCursos;
     }
     public Aluno(){
 

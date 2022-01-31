@@ -1,39 +1,49 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.Aluno;
+import br.com.nttdata.desafios.repositorys.AlunoRepository;
 import br.com.nttdata.desafios.services.interfaces.AlunoInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class AlunoService implements AlunoInterface {
 
+        @Autowired
+        private AlunoRepository alunoRepository;
+
         public Aluno criar(Aluno aluno){
-            aluno.setId(3l);
-            return aluno;
+
+            alunoRepository.save(aluno);
+            Aluno alunoSalvo = alunoRepository.save(aluno);
+            return alunoSalvo;
         }
 
         public Aluno atualizar( Aluno aluno,  Long id){
-            aluno.setId(id);
-            return  aluno;
+            Aluno alunoObtido = this.obter(id);
+            alunoObtido.setNome(aluno.getNome());
+
+            alunoRepository.save(alunoObtido);
+
+            return  alunoObtido;
         }
 
         public void deletar(Long id){
-            //
+            alunoRepository.deleteById(id);
         }
 
         public List<Aluno> listar(){
 
-            Aluno aluno1 = new Aluno();
-            aluno1.setId(2L);
-            aluno1.setNome("php");
-            aluno1.setCpf("123456789");
-            return  List.of(aluno1);
+            List<Aluno> listaAluno = alunoRepository.findAll();
+            return  listaAluno;
         }
 
         public Aluno obter(Long id){
-            Aluno obterCurso = new Aluno();
-            obterCurso.setId(id);
-            return obterCurso;
+            Aluno aluno = alunoRepository.findById(id).get();
+            if(aluno == null){
+                throw new RuntimeException("Aluno não encontrado");
+            }
+            return aluno;
         }
 }
