@@ -33,15 +33,15 @@ Crie as classes de service na sua API;
 Implementar interfaces e declara os metódos que irá ser utilizadas;
 Faça a integração com a camada de controller;
 
--04 Desafio Repository - Conexão com base de dados utilizando JPA
+<h3>04 Desafio Repository - Conexão com base de dados utilizando JPA</h3>
+
 Crie as classes de repository;
 Configure o banco de dados H2 na sua API
 Use a configuração: spring.datasource.url=jdbc:h2:mem:testdb);
 Implementar na camada service;
 Faça os testes para certificar que sua base de dados está integrado;
 
-<h3>05 Desafio DTO - Aplicar conceitos de DTO no projeto</h3>
-
+-05 Desafio DTO - Aplicar conceitos de DTO no projeto
 Aplique os conceitos de DTO na sua aplicação;
 Faça um relacionamento de tabelas na sua API;
 Crie um novo end-point para retornar um DTO personalizado,
