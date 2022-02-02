@@ -1,8 +1,8 @@
 package br.com.nttdata.desafios.controllers;
 
 
-import br.com.nttdata.desafios.dtos.request.AlunoRequestDto;
-import br.com.nttdata.desafios.dtos.response.AlunoResponseDto;
+import br.com.nttdata.desafios.dtos.request.AlunoPostRequest;
+import br.com.nttdata.desafios.dtos.response.AlunoPostResponse;
 import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.services.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,9 @@ public class AlunoController {
     private AlunoService alunoService;
 
     @PostMapping
-    public ResponseEntity<Aluno> criar(@RequestBody Aluno aluno){
-        Aluno aluno1 = alunoService.criar(aluno);
+    public ResponseEntity<Aluno> criar(@RequestBody AlunoPostRequest alunoPostRequest){
+
+        Aluno aluno1 = alunoService.criar(alunoPostRequest);
         return ResponseEntity.created(null).body(aluno1);
     }
 

@@ -1,6 +1,7 @@
 package br.com.nttdata.desafios.services;
 
-import br.com.nttdata.desafios.dtos.request.AlunoRequestDto;
+import br.com.nttdata.desafios.dtos.request.AlunoPostRequest;
+import br.com.nttdata.desafios.dtos.response.AlunoPostResponse;
 import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
 import br.com.nttdata.desafios.repositorys.AlunoRepository;
@@ -10,14 +11,23 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class AlunoService implements AlunoInterface {
+public class AlunoService {
+        @Autowired
+        private ProdutoCursosService produtoCursosService;
 
         @Autowired
         private AlunoRepository alunoRepository;
 
-    public Aluno criar(Aluno aluno){
-        alunoRepository.save(aluno);
+    public AlunoPostResponse criar(AlunoPostRequest alunoPostRequest){
+
+        ProdutoCursos produtoObtido = produtoCursosService.obter(alunoPostRequest.getProdutoCursos());
+
+        Aluno aluno = new Aluno();
+        aluno.setNome(alunoPostRequest.getNome());
+        aluno.setProdutoCursos(produtoObtido);
+
         Aluno alunoSalvo = alunoRepository.save(aluno);
+
         return alunoSalvo;
     }
 
