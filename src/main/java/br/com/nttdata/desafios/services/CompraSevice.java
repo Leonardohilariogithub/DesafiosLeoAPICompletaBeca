@@ -1,39 +1,51 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.Compra;
+import br.com.nttdata.desafios.repositorys.CompraRepository;
 import br.com.nttdata.desafios.services.interfaces.CompraInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class CompraSevice implements CompraInterface {
 
+    @Autowired
+    private CompraRepository compraRepository;
+
     public Compra criar(Compra compra){
-        compra.setId(1L);
-        return compra;
+        compraRepository.save(compra);
+        Compra compraSalva = compraRepository.save(compra);
+        return compraSalva;
     }
 
     public Compra atualizar( Compra compra,  Long id){
-        compra.setId(id);
-        return  compra;
+
+        Compra compraObtida = this.obter(id);
+        compraObtida.setValorTotal(compra.getValorTotal());
+        compraRepository.save(compraObtida);
+        return  compraObtida;
     }
 
     public void deletar( Long id){
-        //
+        compraRepository.deleteById(id);
     }
 
     public List<Compra> listar(){
 
-        Compra compra1 = new Compra();
-        compra1.setId(2L);
-        compra1.setValorTotal(200);
-        return  List.of(compra1);
+        List<Compra> listaCompra = compraRepository.findAll();
+        return  listaCompra;
     }
 
     public Compra obter(Long id){
-        Compra obterCurso = new Compra();
-        obterCurso.setId(id);
-        return obterCurso;
+
+
+        Compra compra = compraRepository.findById(id).get();
+        if(compra == null){
+            throw new RuntimeException("compra nao encontrada");
+
+        }
+        return compra;
     }
 
 }

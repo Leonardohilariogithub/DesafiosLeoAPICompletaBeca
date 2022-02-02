@@ -1,6 +1,8 @@
 package br.com.nttdata.desafios.controllers;
 
 
+import br.com.nttdata.desafios.dtos.request.AlunoRequestDto;
+import br.com.nttdata.desafios.dtos.response.AlunoResponseDto;
 import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.services.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;

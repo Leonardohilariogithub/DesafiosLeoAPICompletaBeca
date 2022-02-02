@@ -14,11 +14,17 @@ public class Aluno {
     @ManyToOne
     private ProdutoCursos produtoCursos;
 
-    public Aluno(long id, String nome, String cpf, ProdutoCursos produtoCursos) {
+    @ManyToOne
+    private Compra compra;
+
+    @ManyToOne
+    private Pedido pedido;
+
+    public Aluno(long id, String nome, String cpf) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-        this.produtoCursos = produtoCursos;
+
     }
     public Aluno(){
 
@@ -46,5 +52,29 @@ public class Aluno {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public ProdutoCursos getProdutoCursos() {
+        return produtoCursos;
+    }
+
+    public void setProdutoCursos(ProdutoCursos produtoCursos) {
+        this.produtoCursos = produtoCursos;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 }
