@@ -2,6 +2,7 @@ package br.com.nttdata.desafios.controllers;
 
 
 import br.com.nttdata.desafios.dtos.request.AlunoPostRequest;
+import br.com.nttdata.desafios.dtos.response.AlunoGetObterResponse;
 import br.com.nttdata.desafios.dtos.response.AlunoPostResponse;
 import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.services.AlunoService;
@@ -43,8 +44,10 @@ public class AlunoController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Aluno> obterCurso(@PathVariable Long id){
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<AlunoGetObterResponse> obterCurso(@PathVariable Long id){
+        AlunoGetObterResponse alunoGetObterResponse = alunoService.obter(id);
+
+        return ResponseEntity.ok(alunoGetObterResponse);
     }
 
 }
