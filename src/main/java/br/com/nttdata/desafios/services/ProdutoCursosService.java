@@ -1,6 +1,5 @@
 package br.com.nttdata.desafios.services;
 
-import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
 import br.com.nttdata.desafios.repositorys.ProdutoCursosRepository;
 import br.com.nttdata.desafios.services.interfaces.ProdutoCursosInterface;

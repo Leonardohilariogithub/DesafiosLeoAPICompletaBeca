@@ -18,10 +18,10 @@ public class AlunoController {
     private AlunoService alunoService;
 
     @PostMapping
-    public ResponseEntity<Aluno> criar(@RequestBody AlunoPostRequest alunoPostRequest){
+    public ResponseEntity<AlunoPostResponse> criar(@RequestBody AlunoPostRequest alunoPostRequest){
 
-        Aluno aluno1 = alunoService.criar(alunoPostRequest);
-        return ResponseEntity.created(null).body(aluno1);
+        AlunoPostResponse alunoPostResponse = alunoService.criar(alunoPostRequest);
+        return ResponseEntity.created(null).body(alunoPostResponse);
     }
 
     @PatchMapping("{id}")

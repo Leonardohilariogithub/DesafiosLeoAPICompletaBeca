@@ -28,7 +28,11 @@ public class AlunoService {
 
         Aluno alunoSalvo = alunoRepository.save(aluno);
 
-        return alunoSalvo;
+        AlunoPostResponse alunoPostResponse = new AlunoPostResponse();
+        alunoPostResponse.setMatricula(alunoSalvo.getId());
+        alunoPostResponse.setMensagem(alunoSalvo.getNome() + " Aluno salvo com sucesso!");
+
+        return alunoPostResponse;
     }
 
         public Aluno atualizar( Aluno aluno,  Long id){
