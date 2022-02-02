@@ -1,7 +1,10 @@
 package br.com.nttdata.desafios.services;
 
+import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.entitys.Pedido;
+import br.com.nttdata.desafios.repositorys.PedidoRepository;
 import br.com.nttdata.desafios.services.interfaces.PedidoInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,33 +12,39 @@ import java.util.List;
 @Service
 public class PedidoService implements PedidoInterface {
 
+    @Autowired
+    private PedidoRepository pedidoRepository;
+
     public Pedido criar(Pedido pedido){
-        pedido.setId(2l);
-        return pedido;
+        pedidoRepository.save(pedido);
+        Pedido pedidoSalvo = pedidoRepository.save(pedido);
+        return pedidoSalvo;
     }
 
     public Pedido atualizar( Pedido pedido,  Long id){
-        pedido.setId(id);
-        return  pedido;
+        Pedido pedidoObtido = this.obter(id);
+        pedidoObtido.setQuantidade(pedido.getQuantidade());
+        pedidoRepository.save(pedidoObtido);
+        return  pedidoObtido;
     }
 
     public void deletar( Long id){
-        //
+        pedidoRepository.deleteById(id);
     }
 
     public List<Pedido> listar(){
 
-        Pedido pedido1 = new Pedido();
-        pedido1.setId(3L);
-        pedido1.setQuantidade(2);
-        pedido1.setDesconto(0.10);
-        return  List.of(pedido1);
+        List<Pedido> listaPedido = pedidoRepository.findAll();
+        return  listaPedido;
     }
 
     public Pedido obter(Long id){
-        Pedido obterPedido = new Pedido();
-        obterPedido.setId(id);
-        return obterPedido;
+
+        Pedido pedido = pedidoRepository.findById(id).get();
+        if(pedido == null){
+            throw new RuntimeException("Aluno não encontrado");
+        }
+        return pedido;
     }
 
 //    List<ProdutoCursos> bancoDeDados = new ArrayList<>();

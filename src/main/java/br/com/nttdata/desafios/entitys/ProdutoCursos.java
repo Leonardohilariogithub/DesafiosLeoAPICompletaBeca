@@ -1,6 +1,13 @@
 package br.com.nttdata.desafios.entitys;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "produtoCursos")
 public class ProdutoCursos{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
     private double valor;
@@ -38,4 +45,5 @@ public class ProdutoCursos{
     public void setValor(double valor) {
         this.valor = valor;
     }
+
 }
