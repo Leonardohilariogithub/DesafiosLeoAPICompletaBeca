@@ -2,6 +2,8 @@ package br.com.nttdata.desafios.controllers;
 
 
 import br.com.nttdata.desafios.dtos.request.AlunoPostRequest;
+import br.com.nttdata.desafios.dtos.response.AlunoDeleteResponse;
+import br.com.nttdata.desafios.dtos.response.AlunoGetListarResponse;
 import br.com.nttdata.desafios.dtos.response.AlunoGetObterResponse;
 import br.com.nttdata.desafios.dtos.response.AlunoPostResponse;
 import br.com.nttdata.desafios.entitys.Aluno;
@@ -32,15 +34,15 @@ public class AlunoController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id){
+    public ResponseEntity<AlunoDeleteResponse> delete(@PathVariable Long id){
         alunoService.deletar(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<Aluno>> listarCursos(){
-        List<Aluno>listarCursos = alunoService.listar();
-        return ResponseEntity.ok(listarCursos);
+    public ResponseEntity<List<AlunoGetListarResponse>> listarCursos(){
+        List<AlunoGetListarResponse>alunoGetListarResponses = alunoService.listar();
+        return ResponseEntity.ok(alunoGetListarResponses);
     }
 
     @GetMapping("{id}")

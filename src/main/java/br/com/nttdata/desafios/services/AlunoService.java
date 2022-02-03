@@ -1,6 +1,7 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.dtos.request.AlunoPostRequest;
+import br.com.nttdata.desafios.dtos.response.AlunoGetListarResponse;
 import br.com.nttdata.desafios.dtos.response.AlunoGetObterResponse;
 import br.com.nttdata.desafios.dtos.response.AlunoPostResponse;
 import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
@@ -11,6 +12,7 @@ import br.com.nttdata.desafios.services.interfaces.AlunoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class AlunoService {
@@ -32,7 +34,7 @@ public class AlunoService {
 
         AlunoPostResponse alunoPostResponse = new AlunoPostResponse();
         alunoPostResponse.setMatricula(alunoSalvo.getId());
-        alunoPostResponse.setMensagem(alunoSalvo.getNome() + " Aluno salvo com sucesso!");
+        alunoPostResponse.setMensagem(alunoSalvo.getNome() + " Comprou Curso com sucesso!");
 
         return alunoPostResponse;
     }
@@ -48,10 +50,14 @@ public class AlunoService {
             alunoRepository.deleteById(id);
         }
 
-        public List<Aluno> listar(){
+        public List<AlunoGetListarResponse> listar(){
 
             List<Aluno> listaAluno = alunoRepository.findAll();
-            return  listaAluno;
+
+            List<AlunoGetListarResponse> alunoGetListarResponse = new ArrayList<>();
+            listaAluno.stream().forEach(aluno -> alunoGetListarResponse.add(new AlunoGetListarResponse(aluno)));
+
+            return  alunoGetListarResponse;
         }
 
         public AlunoGetObterResponse obter(Long id){
