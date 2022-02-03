@@ -10,7 +10,9 @@ import br.com.nttdata.desafios.entitys.ProdutoCursos;
 import br.com.nttdata.desafios.repositorys.AlunoRepository;
 import br.com.nttdata.desafios.services.interfaces.AlunoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +41,13 @@ public class AlunoService {
         return alunoPostResponse;
     }
 
-        public Aluno atualizar( Aluno aluno,  Long id){
-            Aluno alunoObtido = alunoRepository.findById(id).get();
-            alunoObtido.setNome(aluno.getNome());
-            alunoRepository.save(alunoObtido);
-            return  alunoObtido;
-        }
+    public Aluno atualizar( Aluno aluno,  Long id){
+
+        Aluno alunoObtido = alunoRepository.findById(id).get();
+        alunoObtido.setNome(aluno.getNome());
+        alunoRepository.save(alunoObtido);
+        return  alunoObtido;
+    }
 
         public void deletar(Long id){
             alunoRepository.deleteById(id);
