@@ -1,31 +1,15 @@
 package br.com.nttdata.desafios.dtos.response;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AlunoPostResponse {
 
      private Long matricula;
      private String mensagem;
 
-     public AlunoPostResponse() {
-     }
-
-     public AlunoPostResponse(Long matricula, String mensagem) {
-          this.matricula = matricula;
-          this.mensagem = mensagem;
-     }
-
-     public Long getMatricula() {
-          return matricula;
-     }
-
-     public void setMatricula(Long matricula) {
-          this.matricula = matricula;
-     }
-
-     public String getMensagem() {
-          return mensagem;
-     }
-
-     public void setMensagem(String mensagem) {
-          this.mensagem = mensagem;
-     }
 }

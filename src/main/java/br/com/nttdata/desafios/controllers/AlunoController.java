@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+
+
 @RestController
 @RequestMapping(value = "/aluno")
 public class AlunoController {
@@ -21,7 +24,7 @@ public class AlunoController {
     private AlunoService alunoService;
 
     @PostMapping
-    public ResponseEntity<AlunoPostResponse> criar(@RequestBody AlunoPostRequest alunoPostRequest){
+    public ResponseEntity<AlunoPostResponse> criar(@RequestBody @Valid AlunoPostRequest alunoPostRequest){
 
         AlunoPostResponse alunoPostResponse = alunoService.criar(alunoPostRequest);
         return ResponseEntity.created(null).body(alunoPostResponse);

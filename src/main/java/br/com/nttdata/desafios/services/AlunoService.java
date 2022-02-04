@@ -8,11 +8,8 @@ import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
 import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
 import br.com.nttdata.desafios.repositorys.AlunoRepository;
-import br.com.nttdata.desafios.services.interfaces.AlunoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
