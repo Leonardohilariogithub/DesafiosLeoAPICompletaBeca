@@ -3,25 +3,21 @@ package br.com.nttdata.desafios.controllers;
 
 import br.com.nttdata.desafios.dtos.request.AlunoPostRequest;
 import br.com.nttdata.desafios.dtos.response.AlunoDeleteResponse;
-import br.com.nttdata.desafios.dtos.response.AlunoGetListarResponse;
-import br.com.nttdata.desafios.dtos.response.AlunoGetObterResponse;
 import br.com.nttdata.desafios.dtos.response.AlunoPostResponse;
-import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.services.AlunoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/aluno")
 public class AlunoController {
 
-    @Autowired
-    private AlunoService alunoService;
+    private final AlunoService alunoService;
 
     @PostMapping
     public ResponseEntity<AlunoPostResponse> criar(@RequestBody @Valid AlunoPostRequest alunoPostRequest){
@@ -31,9 +27,10 @@ public class AlunoController {
     }
 
     @PatchMapping("{id}")
-    public ResponseEntity<Aluno>atualizar(@RequestBody Aluno aluno, @PathVariable Long id){
-        Aluno alunoAtualizado = alunoService.atualizar(aluno,id);
-        return ResponseEntity.created(null).body(alunoAtualizado);
+    public ResponseEntity<AlunoPostResponse>atualizar(@RequestBody AlunoPostRequest alunoPostRequest, @PathVariable Long id){
+        AlunoPostResponse alunoPostResponse = alunoService.atualizar(alunoPostRequest,id);
+
+        return ResponseEntity.ok(alunoPostResponse);
     }
 
     @DeleteMapping("{id}")
@@ -43,16 +40,16 @@ public class AlunoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AlunoGetListarResponse>> listarCursos(){
-        List<AlunoGetListarResponse>alunoGetListarResponses = alunoService.listar();
-        return ResponseEntity.ok(alunoGetListarResponses);
+    public ResponseEntity<List<AlunoPostResponse>> listarCursos(){
+        List<AlunoPostResponse>ListaAlunos = alunoService.listar();
+        return ResponseEntity.ok(ListaAlunos);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<AlunoGetObterResponse> obterCurso(@PathVariable Long id){
-        AlunoGetObterResponse alunoGetObterResponse = alunoService.obter(id);
+    public ResponseEntity<AlunoPostResponse> obterCurso(@PathVariable Long id){
+        AlunoPostResponse alunoPostResponse = alunoService.obter(id);
 
-        return ResponseEntity.ok(alunoGetObterResponse);
+        return ResponseEntity.ok(alunoPostResponse);
     }
 
 }

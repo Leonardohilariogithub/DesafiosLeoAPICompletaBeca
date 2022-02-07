@@ -16,6 +16,6 @@ public class AlunoPostRequest {
     @Size(min = 3, max = 30)
     private String nome;
 
-    private Long produtoCursos;
+    private ProdutoCursosPostRequest produtoCursos;
 
 }

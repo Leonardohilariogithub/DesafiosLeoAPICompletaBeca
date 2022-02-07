@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AlunoPostResponse {
 
-     private Long matricula;
-     private String mensagem;
+    private long id;
+    private String nome;
+    private ProdutoCursosResponse produtoCursos;
 
 }

@@ -1,84 +1,69 @@
 package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.dtos.request.AlunoPostRequest;
-import br.com.nttdata.desafios.dtos.response.AlunoGetListarResponse;
-import br.com.nttdata.desafios.dtos.response.AlunoGetObterResponse;
 import br.com.nttdata.desafios.dtos.response.AlunoPostResponse;
-import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
 import br.com.nttdata.desafios.entitys.Aluno;
-import br.com.nttdata.desafios.entitys.ProdutoCursos;
+import br.com.nttdata.desafios.mappers.AlunoMapper;
+import br.com.nttdata.desafios.mappers.AlunoToResponseMapper;
+import br.com.nttdata.desafios.mappers.AlunoUpdate;
 import br.com.nttdata.desafios.repositorys.AlunoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
+@RequiredArgsConstructor
 public class AlunoService {
-        @Autowired
-        private ProdutoCursosService produtoCursosService;
 
-        @Autowired
-        private AlunoRepository alunoRepository;
+        private final ProdutoCursosService produtoCursosService;
+        private final AlunoRepository alunoRepository;
+        private final AlunoMapper alunoMapper;
+        private final AlunoToResponseMapper alunoToResponseMapper;
+        private final AlunoUpdate alunoUpdate;
 
-    public AlunoPostResponse criar(AlunoPostRequest alunoPostRequest){
+//mapstruct
+        public AlunoPostResponse criar(AlunoPostRequest alunoPostRequest){
 
-        ProdutoCursos produtoObtido = produtoCursosService.obter(alunoPostRequest.getProdutoCursos());
+            Aluno aluno = alunoMapper.toModel(alunoPostRequest);
 
-        Aluno aluno = new Aluno();
-        aluno.setNome(alunoPostRequest.getNome());
-        aluno.setProdutoCursos(produtoObtido);
+            alunoRepository.save(aluno);
 
-        Aluno alunoSalvo = alunoRepository.save(aluno);
+            AlunoPostResponse alunoPostResponse = alunoToResponseMapper.toResponse(aluno);
 
-        AlunoPostResponse alunoPostResponse = new AlunoPostResponse();
-        alunoPostResponse.setMatricula(alunoSalvo.getId());
-        alunoPostResponse.setMensagem(alunoSalvo.getNome() + " Comprou Curso com sucesso!");
-
-        return alunoPostResponse;
-    }
-
-    public Aluno atualizar( Aluno aluno,  Long id){
-
-        Aluno alunoObtido = alunoRepository.findById(id).get();
-        alunoObtido.setNome(aluno.getNome());
-        alunoRepository.save(alunoObtido);
-        return  alunoObtido;
-    }
-
-        public void deletar(Long id){
-            alunoRepository.deleteById(id);
+            return alunoPostResponse;
         }
 
-        public List<AlunoGetListarResponse> listar(){
+        public AlunoPostResponse atualizar(AlunoPostRequest alunoPostRequest,  Long id){
+
+            Aluno alunoObtido = alunoRepository.findById(id).get();
+
+            AlunoUpdate.atualizar(alunoPostRequest, alunoObtido);
+
+            alunoRepository.save(alunoObtido);
+
+            return alunoToResponseMapper.toResponse(alunoObtido);
+        }
+
+        public void deletar(Long id){
+                alunoRepository.deleteById(id);
+            }
+
+        public List<AlunoPostResponse> listar(){
 
             List<Aluno> listaAluno = alunoRepository.findAll();
 
-            List<AlunoGetListarResponse> alunoGetListarResponse = new ArrayList<>();
-            listaAluno.stream().forEach(aluno -> alunoGetListarResponse.add(new AlunoGetListarResponse(aluno)));
+            return listaAluno
+                    .stream()
+                    .map(alunoToResponseMapper::toResponse)
+                    .collect(Collectors.toList());
 
-            return  alunoGetListarResponse;
         }
 
-        public AlunoGetObterResponse obter(Long id){
+        public AlunoPostResponse obter(Long id){
             Aluno aluno = alunoRepository.findById(id).get();
 
-            //mapeamento
-            AlunoGetObterResponse alunoGetObterResponse = new AlunoGetObterResponse();
-            alunoGetObterResponse.setId(aluno.getId());
-            alunoGetObterResponse.setNome(aluno.getNome());
-
-            ProdutoCursosResponse produtoCursosResponse = new ProdutoCursosResponse();
-            produtoCursosResponse.setId(aluno.getProdutoCursos().getId());
-            produtoCursosResponse.setNome(aluno.getProdutoCursos().getNome());
-
-            alunoGetObterResponse.setProdutoCursos(produtoCursosResponse);
-            alunoGetObterResponse.setMensagem("Aluno matriculado com SUCESSO!!!");
-
-
-//            if(aluno == null){
-//                throw new RuntimeException("Aluno não encontrado");
-//            }
-            return alunoGetObterResponse;
+            return alunoToResponseMapper.toResponse(aluno);
         }
 }
