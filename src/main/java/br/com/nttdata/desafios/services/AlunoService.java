@@ -6,6 +6,7 @@ import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.mappers.AlunoMapper;
 import br.com.nttdata.desafios.mappers.AlunoToResponseMapper;
 import br.com.nttdata.desafios.mappers.AlunoUpdate;
+import br.com.nttdata.desafios.mappers.ProdutoCursosToProdutoCursoResponse;
 import br.com.nttdata.desafios.repositorys.AlunoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class AlunoService {
         private final AlunoToResponseMapper alunoToResponseMapper;
         private final AlunoUpdate alunoUpdate;
 
+
 //mapstruct
         public AlunoPostResponse criar(AlunoPostRequest alunoPostRequest){
 
@@ -39,7 +41,7 @@ public class AlunoService {
 
             Aluno alunoObtido = alunoRepository.findById(id).get();
 
-            AlunoUpdate.atualizar(alunoPostRequest, alunoObtido);
+            alunoUpdate.atualizar(alunoPostRequest, alunoObtido);
 
             alunoRepository.save(alunoObtido);
 

@@ -1,7 +1,7 @@
 # becaDesafiosLeo
-Projeto API Completa Em 8 Desafios
+## Projeto API Completa Em 8 Desafios
 
-</div>
+<div>
 <div style="display: inline_block"><br>
   <img align="center" alt="Rafa-Js" height="30" width="40" src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white">
   
@@ -15,10 +15,10 @@ Projeto API Completa Em 8 Desafios
 ## Sumário
 - [O que você vai aprender](#O-que-você-vai-aprender)
 - [Pré-requisitos](#Pré-requisitos)
-- [Enunciado do exercício](#Enunciado-do-exercício)
+- [Enunciado dos DESAFIOS](#Enunciado-do-exercício)
 - [Diagramas](#Diagramas)
   - [Modelo conceitual](#Modelo-conceitual)
-  - [Instância](#Instância)
+  - [Instâncias](#Instância)
 
 ## O que você vai aprender
 -01 Desafio POO - Modelar o projeto e criar entidades
@@ -34,28 +34,29 @@ Implementar interfaces e declara os metódos que irá ser utilizadas;
 Faça a integração com a camada de controller;
 
 -04 Desafio Repository - Conexão com base de dados utilizando JPA</h3>
-
 Crie as classes de repository;
 Configure o banco de dados H2 na sua API
 Use a configuração: spring.datasource.url=jdbc:h2:mem:testdb);
 Implementar na camada service;
 Faça os testes para certificar que sua base de dados está integrado;
 
-<h3>05 Desafio DTO - Aplicar conceitos de DTO no projeto<h3>
+-05 Desafio DTO - Aplicar conceitos de DTO no projeto
 Aplique os conceitos de DTO na sua aplicação;
 Faça um relacionamento de tabelas na sua API;
 Crie um novo end-point para retornar um DTO personalizado,
 agrupamento de várias informações em diferentes tabelas da sua base de dados;
 
-- Desafio Tratamento de dados - Conceitos de validação, tratamento e manipulação de dados de forma otimizada 
+<h3>-06 Desafio Tratamento de dados - Conceitos de validação, tratamento e manipulação de dados de forma otimizada</h3>
+
+
 - Desafio de Exeções - Entendimento de como tratar possiveis erros na API
 - Desafio Dokcker - Integração da API com docker
 
 ## Pré-requisitos
 
-- Vontade de aprender
+- Vontade de aprender JAVA
 
-## Enunciado do exercício
+## Enunciado dos DESAFIOS
 
 ![myImage](https://github.com/Leonardohilariogithub/becaDesafiosLeo/blob/main/enuciado.PNG)
 
@@ -65,6 +66,42 @@ agrupamento de várias informações em diferentes tabelas da sua base de dados;
 
 ![myImage](https://github.com/Leonardohilariogithub/becaDesafiosLeo/blob/main/modelo.PNG)
 
-### Instância
+### Instâncias
 
 ![myImage](https://github.com/Leonardohilariogithub/becaDesafiosLeo/blob/main/instancias.PNG)
+
+# Endpoints
+
+| Requisições                                  | Descrição                                                    |
+| -------------------------------------------- | ------------------------------------------------------------ |
+| POST `/titulos/cadastrar`                      | Cadastra Titulos novos.|
+| GET `/titulos/obter`    | Retorna uma titulo desejado. |
+| PATCH `/titulos/atualizar` | Retorna titulo atualizado.        |
+| DELETE `/titulos/deletar/`                     |Retorna titulo deletado atráves do id.                   |
+| GET `/titulos`                          | Retorna uma lista com todos os titulos criados.           |
+| POST `/categoria/cadastrar`                        | Retorna para cadastro de uma categoria.    |
+| GET `/categoria/obter/23`        | Retorna lista de uma categoria através do id. |
+| PATCH `/categoria/atualizar/89'`     | Retorna uma categoria atualizada através do id.        |
+| GET `/categoria`    | Retorna uma lista com todas as categorias. |
+| DELETE `/categoria/deletar/233`    | Retorna uma categoria deletada através do id. |
+| POST `/usuarios/cadastrarUsuarios`    | Retorna para cadastro de um usuario. |
+| GET `/usuarios/obterUsuarios/2`    | Retorna uma lista com usuário pelo id. |
+| PATCH `/usuarios/atualizarUsuarios/39`    | Retorna  um usuário atualiado pelo id. |
+| DELETE `/usuarios/deletarUsuarios/231`    | Retorna usuario deletado atraves do id. |
+| GET `/assistidos/obterTtituloAssistido/2`    | Retorna uma lista titulo  já assistido atraves do id. |
+| PATCH `/assistidos/atualizarTitulosAssistido/8`    | Retorna  titulo atualizado   atraves do id. |
+| GET `/assistidos`    | Retorna uma lista com todos os titulos já assistidos. |
+| DELETE `/assistidos/deletar/2`    | Retorna uma titulo já assistido deletado atrás do id. |
+| GET `/assistindo/obter/2`    | Retorna uma titulo que está em andamento pelo id. |
+| PATCH `/assistindo/mudarStatus/89`    | Retorna titulo pelo id e seu status concluido ou em andamento. |
+| GET `/assistindo`    | Retorna uma lista com todos os titulos que estão sendo assistidos no momento. |
+| DELETE `/assistindo/deletar/23`    | Retorna titulo deletado pelo id. |
+
+## Tecnologias Usadas
+
+Java.
+GitHub.
+Intelij.
+Draw.io.
+Postman.
+Spring Boot.

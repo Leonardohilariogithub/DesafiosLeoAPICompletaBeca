@@ -5,7 +5,7 @@ import br.com.nttdata.desafios.entitys.ProdutoCursos;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ProdutoCursosUpdate {
 
     public void atualizar( ProdutoCursosPostRequest produtoCursosPostRequest,@MappingTarget ProdutoCursos produtoCursos);
