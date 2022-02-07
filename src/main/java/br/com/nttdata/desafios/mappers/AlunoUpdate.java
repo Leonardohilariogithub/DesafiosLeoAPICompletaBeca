@@ -5,7 +5,7 @@ import br.com.nttdata.desafios.entitys.Aluno;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AlunoUpdate {
 
     public void atualizar(AlunoPostRequest alunoPostRequest, @MappingTarget Aluno aluno);

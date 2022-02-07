@@ -19,4 +19,7 @@ public class ProdutoCursos{
     private String nome;
     private double valor;
 
+    @ManyToOne
+    private Aluno aluno;
+
 }

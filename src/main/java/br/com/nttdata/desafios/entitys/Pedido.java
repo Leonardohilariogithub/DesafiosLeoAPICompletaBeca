@@ -21,6 +21,9 @@ public class Pedido {
     @ManyToOne
     private ProdutoCursos produtoCursos;
 
+    @ManyToOne
+    private Aluno aluno;
+
     public Pedido(long id, double quantidade, double desconto) {
         this.id = id;
         this.quantidade = quantidade;

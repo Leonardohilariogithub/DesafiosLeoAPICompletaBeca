@@ -31,6 +31,7 @@ public class Aluno {
     private Pedido pedido;
 
     public Aluno(long id, String nome, String cpf) {
+
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;

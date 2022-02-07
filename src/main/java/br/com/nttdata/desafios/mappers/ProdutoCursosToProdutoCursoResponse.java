@@ -4,7 +4,7 @@ import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ProdutoCursosToProdutoCursoResponse {
 
     public ProdutoCursosResponse toResponse(ProdutoCursos produtoCursos);
