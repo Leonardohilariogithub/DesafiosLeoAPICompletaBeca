@@ -1,51 +1,71 @@
 package br.com.nttdata.desafios.services;
 
+import br.com.nttdata.desafios.dtos.request.ProdutoCursosPostRequest;
+import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
+import br.com.nttdata.desafios.mappers.ProdutoCursosMapper;
+import br.com.nttdata.desafios.mappers.ProdutoCursosToProdutoCursoResponse;
+import br.com.nttdata.desafios.mappers.ProdutoCursosUpdate;
 import br.com.nttdata.desafios.repositorys.ProdutoCursosRepository;
-import br.com.nttdata.desafios.services.interfaces.ProdutoCursosInterface;
+import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-public class ProdutoCursosService implements ProdutoCursosInterface {
+@RequiredArgsConstructor
+public class ProdutoCursosService {
 
-    @Autowired
-    private ProdutoCursosRepository produtoCursosRepository;
+       private final ProdutoCursosRepository produtoCursosRepository;
+       private final ProdutoCursosMapper produtoCursosMapper;
 
-        public ProdutoCursos criar( ProdutoCursos produto){
-            produtoCursosRepository.save(produto);
-            ProdutoCursos produtoCursosSalvo = produtoCursosRepository.save(produto);
-            return produtoCursosSalvo;
+       private final ProdutoCursosToProdutoCursoResponse produtoCursosToProdutoCursoResponse;
+       private final ProdutoCursosUpdate produtoCursosUpdate;
+
+        public ProdutoCursosResponse criar(ProdutoCursosPostRequest produtoCursosPostRequest){
+
+            ProdutoCursos produtoCursos = produtoCursosMapper.toModel(produtoCursosPostRequest);
+
+            produtoCursosRepository.save(produtoCursos);
+
+            ProdutoCursosResponse produtoCursosResponse = produtoCursosToProdutoCursoResponse.toResponse(produtoCursos);
+
+            return produtoCursosResponse;
         }
 
-        public ProdutoCursos atualizar(@NotNull ProdutoCursos produto, Long id){
-            ProdutoCursos produtoCursosObtido = this.obter(id);
-            produtoCursosObtido.setNome(produto.getNome());
+        public ProdutoCursosResponse atualizar(@NotNull ProdutoCursosPostRequest produtoCursosPostRequest, Long id){
+            ProdutoCursos produtoCursosObtido = produtoCursosRepository.findById(id).get();
+
+            produtoCursosUpdate.atualizar(produtoCursosPostRequest,produtoCursosObtido);
 
             produtoCursosRepository.save(produtoCursosObtido);
 
-            return  produtoCursosObtido;
+            return  produtoCursosToProdutoCursoResponse.toResponse(produtoCursosObtido);
         }
 
         public void deletar( Long id){
            produtoCursosRepository.deleteById(id);
         }
 
-        public List<ProdutoCursos> listar(){
-
+        public List<ProdutoCursosResponse> listar(){
             List<ProdutoCursos> listaProdutoCursos = produtoCursosRepository.findAll();
-            return  listaProdutoCursos;
+
+            return  listaProdutoCursos
+                    .stream()
+                    .map(produtoCursosToProdutoCursoResponse::toResponse)
+                    .collect(Collectors.toList());
+
         }
 
-        public ProdutoCursos obter(Long id){
+        public ProdutoCursosResponse obter(Long id){
             ProdutoCursos produtoCursos = produtoCursosRepository.findById(id).get();
+
             if(produtoCursos == null){
                 throw new RuntimeException("Curso não encontrado");
             }
-            return produtoCursos;
+            return produtoCursosToProdutoCursoResponse.toResponse(produtoCursos);
         }
 
 

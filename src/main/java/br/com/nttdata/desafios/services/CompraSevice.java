@@ -2,16 +2,17 @@ package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.Compra;
 import br.com.nttdata.desafios.repositorys.CompraRepository;
-import br.com.nttdata.desafios.services.interfaces.CompraInterface;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.nttdata.desafios.services.interfacesImp.CompraInterface;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
+@RequiredArgsConstructor
 public class CompraSevice implements CompraInterface {
 
-    @Autowired
-    private CompraRepository compraRepository;
+
+    private final CompraRepository compraRepository;
 
     public Compra criar(Compra compra){
         compraRepository.save(compra);

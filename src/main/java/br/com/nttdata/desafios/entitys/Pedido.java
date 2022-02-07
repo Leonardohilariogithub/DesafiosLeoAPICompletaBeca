@@ -1,6 +1,14 @@
 package br.com.nttdata.desafios.entitys;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
 public class Pedido {
@@ -17,38 +25,6 @@ public class Pedido {
         this.id = id;
         this.quantidade = quantidade;
         this.desconto = desconto;
-    }
-
-    public Pedido(){
-
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public double getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(double quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public double getDesconto() {
-        return desconto;
-    }
-
-    public void setDesconto(double desconto) {
-        this.desconto = desconto;
-    }
-
-    public ProdutoCursos getProdutoCursos() {
-        return produtoCursos;
     }
 
     public void setProdutoCursos(ProdutoCursos produtoCursos) {

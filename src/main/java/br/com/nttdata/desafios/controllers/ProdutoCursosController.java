@@ -1,47 +1,49 @@
 package br.com.nttdata.desafios.controllers;
 
-import br.com.nttdata.desafios.entitys.ProdutoCursos;
+import br.com.nttdata.desafios.dtos.request.ProdutoCursosPostRequest;
+import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
 import br.com.nttdata.desafios.services.ProdutoCursosService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/produto")
 public class ProdutoCursosController {
 
-    @Autowired
-    private ProdutoCursosService produtoCursosService;
+    private final ProdutoCursosService produtoCursosService;
 
     @PostMapping
-    public ResponseEntity<ProdutoCursos>criar(@RequestBody ProdutoCursos produtoCursos){
-        ProdutoCursos cursos = produtoCursosService.criar(produtoCursos);
-        return ResponseEntity.created(null).body(cursos);
+    public ResponseEntity<ProdutoCursosResponse>criar(@RequestBody ProdutoCursosPostRequest produtoCursosPostRequest){
+        ProdutoCursosResponse produtoCursosResponse = produtoCursosService.criar(produtoCursosPostRequest);
+        return ResponseEntity.created(null).body(produtoCursosResponse);
     }
 
     @PatchMapping("{id}")
-    public ResponseEntity<ProdutoCursos>atualizar(@RequestBody ProdutoCursos produtoCursos, @PathVariable Long id){
-        ProdutoCursos cursosAtualizado = produtoCursosService.atualizar(produtoCursos,id);
-        return ResponseEntity.created(null).body(cursosAtualizado);
+    public ResponseEntity<ProdutoCursosResponse>atualizar(@RequestBody ProdutoCursosPostRequest produtoCursosPostRequest, @PathVariable Long id){
+        ProdutoCursosResponse produtoCursosResponse = produtoCursosService.atualizar(produtoCursosPostRequest,id);
+        return ResponseEntity.created(null).body(produtoCursosResponse);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id){
         produtoCursosService.deletar(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<ProdutoCursos>> listarCursos(){
-        List<ProdutoCursos>listarCursos = produtoCursosService.listar();
+    public ResponseEntity<List<ProdutoCursosResponse>> listarCursos(){
+        List<ProdutoCursosResponse>listarCursos = produtoCursosService.listar();
         return ResponseEntity.ok(listarCursos);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ProdutoCursos> obterCurso(@PathVariable Long id){
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<ProdutoCursosResponse> obterCurso(@PathVariable Long id){
+        ProdutoCursosResponse produtoCursosResponse = produtoCursosService.obter(id);
+        return ResponseEntity.ok(produtoCursosResponse);
     }
 
 //localhost:8080/produto/
