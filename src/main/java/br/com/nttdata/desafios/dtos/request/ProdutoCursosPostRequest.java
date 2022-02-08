@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Data
 @NoArgsConstructor
@@ -15,8 +14,9 @@ public class ProdutoCursosPostRequest {
     private long id;
 
     @NotBlank(message = "{nome.not.blank")
-    @Size(min = 3, max = 30)
+    @Size(min = 2, max = 30)
     private String nome;
 
+    @Positive
     private double valor;
 }
