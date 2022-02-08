@@ -16,10 +16,12 @@ public class ProdutoCursos{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false, length = 35)
     private String nome;
+
     private double valor;
 
     @ManyToOne
     private Aluno aluno;
-
 }

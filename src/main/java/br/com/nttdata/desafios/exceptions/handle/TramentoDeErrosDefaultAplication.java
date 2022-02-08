@@ -26,7 +26,7 @@ public class TramentoDeErrosDefaultAplication {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity <DefaultExeption> handle(MethodArgumentNotValidException e){
         DefaultExeption defaultExeption = new DefaultExeption();
-        defaultExeption.setMensagem("Campo nulo ou negativo não permitido!");
+        defaultExeption.setMensagem("Campo minimo, nulo ou negativo não permitido!");
         defaultExeption.setDataHora(LocalDateTime.now());
         defaultExeption.setStatus(HttpStatus.BAD_REQUEST.value());
 
@@ -36,7 +36,7 @@ public class TramentoDeErrosDefaultAplication {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity <DefaultExeption> handle(HttpMessageNotReadableException e){
         DefaultExeption defaultExeption = new DefaultExeption();
-        defaultExeption.setMensagem("Coloque um valor agora!");
+        defaultExeption.setMensagem("Coloque um curso ou valor agora!");
         defaultExeption.setDataHora(LocalDateTime.now());
         defaultExeption.setStatus(HttpStatus.BAD_REQUEST.value());
 

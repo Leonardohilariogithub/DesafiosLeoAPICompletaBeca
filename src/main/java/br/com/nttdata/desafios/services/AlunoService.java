@@ -9,6 +9,7 @@ import br.com.nttdata.desafios.mappers.AlunoUpdate;
 import br.com.nttdata.desafios.mappers.ProdutoCursosToProdutoCursoResponse;
 import br.com.nttdata.desafios.repositorys.AlunoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,9 +25,14 @@ public class AlunoService {
         private final AlunoToResponseMapper alunoToResponseMapper;
         private final AlunoUpdate alunoUpdate;
 
-
 //mapstruct
         public AlunoPostResponse criar(AlunoPostRequest alunoPostRequest){
+//            try {
+//                if(alunoPostRequest.getNome().length() <= 2);
+//            } catch (HttpMessageNotReadableException e){
+//                System.out.println(e + "errado");
+//            }
+
 
             Aluno aluno = alunoMapper.toModel(alunoPostRequest);
 
