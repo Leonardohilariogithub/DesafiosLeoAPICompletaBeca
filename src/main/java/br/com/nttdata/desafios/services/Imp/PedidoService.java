@@ -1,10 +1,10 @@
-package br.com.nttdata.desafios.services.interfacesImp;
+package br.com.nttdata.desafios.services.Imp;
 
 import br.com.nttdata.desafios.entitys.Pedido;
 
 import java.util.List;
 
-public interface PedidoInterface {
+public interface PedidoService {
 
     public Pedido criar(Pedido pedido);
 

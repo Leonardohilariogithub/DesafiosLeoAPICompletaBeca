@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Data
 @Service
 @RequiredArgsConstructor
-public class ProdutoCursosService {
+public class ProdutoCursosServiceInterface {
 
        private final ProdutoCursosRepository produtoCursosRepository;
        private final ProdutoCursosMapper produtoCursosMapper;

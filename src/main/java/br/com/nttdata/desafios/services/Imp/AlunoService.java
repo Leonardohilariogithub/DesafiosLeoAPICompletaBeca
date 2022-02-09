@@ -1,10 +1,10 @@
-package br.com.nttdata.desafios.services.interfacesImp;
+package br.com.nttdata.desafios.services.Imp;
 
 import br.com.nttdata.desafios.entitys.Aluno;
 
 import java.util.List;
 
-public interface AlunoInterface {
+public interface AlunoService {
 
     public Aluno criar(Aluno aluno);
 

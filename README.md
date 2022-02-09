@@ -21,36 +21,59 @@
   - [Instâncias](#Instância)
 
 ## O que você vai aprender
--01 Desafio POO - Modelar o projeto e criar entidades
+-01 Desafio POO 
+- Modelar o projeto e criar entidades
+Crie uma modelagem e um pequeno resumo sobre oque será baseada sua API.
+Crie um projeto spring Boot
+Crie um repositório no seu git pessoal “becaDesafiosSeuNome” e utilize para entrega de todos os desafios.
+Commit seu código na branch “main” junto com o arquivo README.md, personalize o documento,
+adicionando o que seu sistema irá realizar e uma modelagem das suas entidades. 
 
--02 Desafio Controller - Entendimento dos protocolos http e confecção das controllers
+-02 Desafio Controller 
+- Entendimento dos protocolos http e confecção das controllers,
 Crie as classes de controllers na sua API (CRUD);
 Implementar o OpenAPI na sua Spring Rest API;
 Implementar ResponseEntity nos retornos das suas chamadas!
 
--03 Desafio Service - Indrodução e confecção servive
+-03 Desafio Service 
+- Indrodução e confecção servive,
 Crie as classes de service na sua API;
 Implementar interfaces e declara os metódos que irá ser utilizadas;
 Faça a integração com a camada de controller;
 
--04 Desafio Repository - Conexão com base de dados utilizando JPA</h3>
+-04 Desafio Repository 
+- Conexão com base de dados utilizando JPA,
 Crie as classes de repository;
 Configure o banco de dados H2 na sua API
 Use a configuração: spring.datasource.url=jdbc:h2:mem:testdb);
 Implementar na camada service;
 Faça os testes para certificar que sua base de dados está integrado;
 
--05 Desafio DTO - Aplicar conceitos de DTO no projeto
+-05 Desafio DTO 
+- Aplicar conceitos de DTO no projeto,
 Aplique os conceitos de DTO na sua aplicação;
 Faça um relacionamento de tabelas na sua API;
 Crie um novo end-point para retornar um DTO personalizado,
 agrupamento de várias informações em diferentes tabelas da sua base de dados;
 
-<h3>-06 Desafio Tratamento de dados - Conceitos de validação, tratamento e manipulação de dados de forma otimizada</h3>
+-06 Desafio Tratamento de dados 
+- Conceitos de validação, tratamento e manipulação de dados de forma otimizada,
+  Adicione validações de dados na sua API;
+  Adicione Mapper em sua aplicação para a conversão de objetos;
+  Implementar Lombook em sua aplicação.
 
+<h3>-07 Desafio de Exeções- Entendimento de como tratar possiveis erros na API</h3>
+- Faça o tratamento das exception utilizando try catch e si necessário finally;
+Agora faça o tratamento utilizando throw e @ExceptionHandler;
+Aproveitando o método criado com @ExceptionHandler,
+crie sua própria classe para tratamento de exceptions utilizando @ControllerAdvice;
+Realize novos testes, verifique o resultado final e escreva sua própria conclusão sobre exceptions.
 
-- Desafio de Exeções - Entendimento de como tratar possiveis erros na API
-- Desafio Dokcker - Integração da API com docker
+-Desafio Dokcker - Integração da API com docker
+ - Crie um docker-compose.yml;
+  Suba um container contendo uma base de dados;
+  Integre sua Api com a base de dados;
+  Faça os testes de integração com a nova base de dados;
 
 ## Pré-requisitos
 

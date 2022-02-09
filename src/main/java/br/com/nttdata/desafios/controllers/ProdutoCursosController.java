@@ -2,7 +2,7 @@ package br.com.nttdata.desafios.controllers;
 
 import br.com.nttdata.desafios.dtos.request.ProdutoCursosPostRequest;
 import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
-import br.com.nttdata.desafios.services.ProdutoCursosService;
+import br.com.nttdata.desafios.services.ProdutoCursosServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping(value = "/produto")
 public class ProdutoCursosController {
 
-    private final ProdutoCursosService produtoCursosService;
+    private final ProdutoCursosServiceInterface produtoCursosService;
 
     @PostMapping
     public ResponseEntity<ProdutoCursosResponse>criar(@RequestBody @Valid ProdutoCursosPostRequest produtoCursosPostRequest){

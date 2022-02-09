@@ -6,10 +6,8 @@ import br.com.nttdata.desafios.entitys.Aluno;
 import br.com.nttdata.desafios.mappers.AlunoMapper;
 import br.com.nttdata.desafios.mappers.AlunoToResponseMapper;
 import br.com.nttdata.desafios.mappers.AlunoUpdate;
-import br.com.nttdata.desafios.mappers.ProdutoCursosToProdutoCursoResponse;
 import br.com.nttdata.desafios.repositorys.AlunoRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,9 +15,9 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class AlunoService {
+public class AlunoServiceInterface {
 
-        private final ProdutoCursosService produtoCursosService;
+        private final ProdutoCursosServiceInterface produtoCursosService;
         private final AlunoRepository alunoRepository;
         private final AlunoMapper alunoMapper;
         private final AlunoToResponseMapper alunoToResponseMapper;
@@ -27,12 +25,6 @@ public class AlunoService {
 
 //mapstruct
         public AlunoPostResponse criar(AlunoPostRequest alunoPostRequest){
-//            try {
-//                if(alunoPostRequest.getNome().length() <= 2);
-//            } catch (HttpMessageNotReadableException e){
-//                System.out.println(e + "errado");
-//            }
-
 
             Aluno aluno = alunoMapper.toModel(alunoPostRequest);
 
