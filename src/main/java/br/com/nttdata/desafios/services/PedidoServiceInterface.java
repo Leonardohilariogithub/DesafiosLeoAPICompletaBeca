@@ -2,14 +2,14 @@ package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.Pedido;
 import br.com.nttdata.desafios.repositorys.PedidoRepository;
-import br.com.nttdata.desafios.services.interfacesImp.PedidoInterface;
+import br.com.nttdata.desafios.services.Imp.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PedidoService implements PedidoInterface {
+public class PedidoServiceInterface implements PedidoService {
 
     @Autowired
     private PedidoRepository pedidoRepository;

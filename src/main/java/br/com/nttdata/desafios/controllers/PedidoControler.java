@@ -1,7 +1,7 @@
 package br.com.nttdata.desafios.controllers;
 
 import br.com.nttdata.desafios.entitys.Pedido;
-import br.com.nttdata.desafios.services.PedidoService;
+import br.com.nttdata.desafios.services.PedidoServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 public class PedidoControler {
 
     @Autowired
-    private PedidoService pedidoService;
+    private PedidoServiceInterface pedidoService;
 
     @PostMapping
     public ResponseEntity<Pedido>criar(@RequestBody Pedido pedido){

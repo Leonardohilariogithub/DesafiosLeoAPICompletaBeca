@@ -1,10 +1,10 @@
-package br.com.nttdata.desafios.services.interfacesImp;
+package br.com.nttdata.desafios.services.Imp;
 
 import br.com.nttdata.desafios.entitys.Compra;
 
 import java.util.List;
 
-public interface CompraInterface {
+public interface CompraService {
 
     public Compra criar(Compra compra);
 

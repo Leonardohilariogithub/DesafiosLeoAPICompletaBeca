@@ -1,10 +1,10 @@
-package br.com.nttdata.desafios.services.interfacesImp;
+package br.com.nttdata.desafios.services.Imp;
 
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
 
 import java.util.List;
 
-public interface ProdutoCursosInterface {
+public interface ProdutoCursosService {
 
     public ProdutoCursos criar(ProdutoCursos produto);
 

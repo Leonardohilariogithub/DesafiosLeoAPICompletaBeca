@@ -2,11 +2,12 @@ package br.com.nttdata.desafios.controllers;
 
 import br.com.nttdata.desafios.dtos.request.ProdutoCursosPostRequest;
 import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
-import br.com.nttdata.desafios.services.ProdutoCursosService;
+import br.com.nttdata.desafios.services.ProdutoCursosServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -14,10 +15,10 @@ import java.util.List;
 @RequestMapping(value = "/produto")
 public class ProdutoCursosController {
 
-    private final ProdutoCursosService produtoCursosService;
+    private final ProdutoCursosServiceInterface produtoCursosService;
 
     @PostMapping
-    public ResponseEntity<ProdutoCursosResponse>criar(@RequestBody ProdutoCursosPostRequest produtoCursosPostRequest){
+    public ResponseEntity<ProdutoCursosResponse>criar(@RequestBody @Valid ProdutoCursosPostRequest produtoCursosPostRequest){
         ProdutoCursosResponse produtoCursosResponse = produtoCursosService.criar(produtoCursosPostRequest);
         return ResponseEntity.created(null).body(produtoCursosResponse);
     }
@@ -45,12 +46,6 @@ public class ProdutoCursosController {
         ProdutoCursosResponse produtoCursosResponse = produtoCursosService.obter(id);
         return ResponseEntity.ok(produtoCursosResponse);
     }
-
-//localhost:8080/produto/
-//    Create - Criar - POST - cria um obejeto - criei
-//    Read - LER - Get - Ler - ok
-//    Update - Atualizar - Put/Patch - atualiza um objeto - aceitei
-//    Delete - Deletar - Delete - exclui - nada
 
 }
 

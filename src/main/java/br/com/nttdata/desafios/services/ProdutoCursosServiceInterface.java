@@ -3,10 +3,12 @@ package br.com.nttdata.desafios.services;
 import br.com.nttdata.desafios.dtos.request.ProdutoCursosPostRequest;
 import br.com.nttdata.desafios.dtos.response.ProdutoCursosResponse;
 import br.com.nttdata.desafios.entitys.ProdutoCursos;
+import br.com.nttdata.desafios.exceptions.TamanhoNaoValidoException;
 import br.com.nttdata.desafios.mappers.ProdutoCursosMapper;
 import br.com.nttdata.desafios.mappers.ProdutoCursosToProdutoCursoResponse;
 import br.com.nttdata.desafios.mappers.ProdutoCursosUpdate;
 import br.com.nttdata.desafios.repositorys.ProdutoCursosRepository;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
@@ -14,9 +16,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Data
 @Service
 @RequiredArgsConstructor
-public class ProdutoCursosService {
+public class ProdutoCursosServiceInterface {
 
        private final ProdutoCursosRepository produtoCursosRepository;
        private final ProdutoCursosMapper produtoCursosMapper;
@@ -25,6 +28,9 @@ public class ProdutoCursosService {
        private final ProdutoCursosUpdate produtoCursosUpdate;
 
         public ProdutoCursosResponse criar(ProdutoCursosPostRequest produtoCursosPostRequest){
+            if(produtoCursosPostRequest.getNome().length() <= 2) {
+                throw new TamanhoNaoValidoException("Não pode ter menos de 3 letras, por favor corrigir!");
+            }
 
             ProdutoCursos produtoCursos = produtoCursosMapper.toModel(produtoCursosPostRequest);
 

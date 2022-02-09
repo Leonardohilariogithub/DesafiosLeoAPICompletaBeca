@@ -1,7 +1,7 @@
 package br.com.nttdata.desafios.controllers;
 
 import br.com.nttdata.desafios.entitys.Compra;
-import br.com.nttdata.desafios.services.CompraSevice;
+import br.com.nttdata.desafios.services.CompraSeviceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 public class CompraController {
 
     @Autowired
-    private CompraSevice compraSevice;
+    private CompraSeviceInterface compraSevice;
 
     @PostMapping
     public ResponseEntity<Compra> criar(@RequestBody Compra compra){

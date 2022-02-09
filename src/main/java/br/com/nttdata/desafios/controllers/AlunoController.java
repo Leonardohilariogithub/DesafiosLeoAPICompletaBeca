@@ -4,7 +4,7 @@ package br.com.nttdata.desafios.controllers;
 import br.com.nttdata.desafios.dtos.request.AlunoPostRequest;
 import br.com.nttdata.desafios.dtos.response.AlunoDeleteResponse;
 import br.com.nttdata.desafios.dtos.response.AlunoPostResponse;
-import br.com.nttdata.desafios.services.AlunoService;
+import br.com.nttdata.desafios.services.AlunoServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping(value = "/aluno")
 public class AlunoController {
 
-    private final AlunoService alunoService;
+    private final AlunoServiceInterface alunoService;
 
     @PostMapping
     public ResponseEntity<AlunoPostResponse> criar(@RequestBody @Valid AlunoPostRequest alunoPostRequest){

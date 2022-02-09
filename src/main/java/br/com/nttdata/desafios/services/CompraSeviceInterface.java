@@ -2,14 +2,14 @@ package br.com.nttdata.desafios.services;
 
 import br.com.nttdata.desafios.entitys.Compra;
 import br.com.nttdata.desafios.repositorys.CompraRepository;
-import br.com.nttdata.desafios.services.interfacesImp.CompraInterface;
+import br.com.nttdata.desafios.services.Imp.CompraService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 @RequiredArgsConstructor
-public class CompraSevice implements CompraInterface {
+public class CompraSeviceInterface implements CompraService {
 
 
     private final CompraRepository compraRepository;
