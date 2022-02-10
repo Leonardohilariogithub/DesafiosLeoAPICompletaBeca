@@ -62,14 +62,14 @@ agrupamento de várias informações em diferentes tabelas da sua base de dados;
   Adicione Mapper em sua aplicação para a conversão de objetos;
   Implementar Lombook em sua aplicação.
 
-<h3>-07 Desafio de Exeções- Entendimento de como tratar possiveis erros na API</h3>
+-07 Desafio de Exeções- Entendimento de como tratar possiveis erros na API
 - Faça o tratamento das exception utilizando try catch e si necessário finally;
 Agora faça o tratamento utilizando throw e @ExceptionHandler;
 Aproveitando o método criado com @ExceptionHandler,
 crie sua própria classe para tratamento de exceptions utilizando @ControllerAdvice;
 Realize novos testes, verifique o resultado final e escreva sua própria conclusão sobre exceptions.
 
--Desafio Dokcker - Integração da API com docker
+<h3>-08 Desafio Dokcker - Integração da API com docker</h3>
  - Crie um docker-compose.yml;
   Suba um container contendo uma base de dados;
   Integre sua Api com a base de dados;
