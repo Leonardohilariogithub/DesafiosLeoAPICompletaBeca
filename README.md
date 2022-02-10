@@ -15,7 +15,7 @@
 ## Sumário
 - [O que você vai aprender](#O-que-você-vai-aprender)
 - [Pré-requisitos](#Pré-requisitos)
-- [Enunciado dos DESAFIOS](#Enunciado-do-exercício)
+- [Enunciado dos DESAFIOS](#Enunciado dos DESAFIOS)
 - [Diagramas](#Diagramas)
   - [Modelo conceitual](#Modelo-conceitual)
   - [Instâncias](#Instância)
@@ -70,10 +70,10 @@ crie sua própria classe para tratamento de exceptions utilizando @ControllerAdv
 Realize novos testes, verifique o resultado final e escreva sua própria conclusão sobre exceptions.
 
 <h3>-08 Desafio Dokcker - Integração da API com docker</h3>
- - Crie um docker-compose.yml;
-  Suba um container contendo uma base de dados;
-  Integre sua Api com a base de dados;
-  Faça os testes de integração com a nova base de dados;
+- Crie um docker-compose.yml;
+ Suba um container contendo uma base de dados;
+ Integre sua Api com a base de dados;
+ Faça os testes de integração com a nova base de dados;
 
 ## Pré-requisitos
 
