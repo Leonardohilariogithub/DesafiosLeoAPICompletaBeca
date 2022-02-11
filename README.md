@@ -68,6 +68,7 @@ crie sua própria classe para tratamento de exceptions utilizando @ControllerAdv
 Realize novos testes, verifique o resultado final e escreva sua própria conclusão sobre exceptions.
 
 <h3>-08 Desafio Dokcker - Integração da API com docker</h3>
+
 - Crie um docker-compose.yml;
  Suba um container contendo uma base de dados;
  Integre sua Api com a base de dados;
