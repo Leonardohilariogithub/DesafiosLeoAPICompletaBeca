@@ -13,7 +13,7 @@
 ## Sumário
 - [O que você vai aprender](#O-que-você-vai-aprender)
 - [Pré-requisitos](#Pré-requisitos)
-- [Enunciado dos DESAFIOS](#Enunciado dos DESAFIOS)
+- [Enunciado dos DESAFIOS](#Enunciado-dos-DESAFIOS)
 - [Diagramas](#Diagramas)
   - [Modelo conceitual](#Modelo-conceitual)
   - [Instâncias](#Instância)
@@ -129,12 +129,12 @@ Spring Boot.
 Docker.
 
 # Agradecimentos a Empresa Ntt Data e Mentores
-##Flavius Gama
+## Flavius Gama
 <div> 
    	<a href="https://www.linkedin.com/in/flavius-gama-748774a1/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
 </div>
 
-##Vyttor Salgado
+## Vyttor Salgado
 <div> 
    	<a href="https://www.linkedin.com/in/vyttor-salgado-4a7677178/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
 </div>
